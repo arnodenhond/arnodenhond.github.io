@@ -1,0 +1,29 @@
+title: arnodenhond.com
+description: Android
+author: Arno den Hond
+
+url: https://arnodenhond.com
+baseurl: ""   # empty if using root domain
+
+theme: minima
+
+markdown: kramdown
+
+tagline: Notes from the internet
+email: arnodenhond@gmail.com
+
+#permalink: /:year/:month/:day/:title/
+google_analytics: G-33MVSFYCMP
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+collections:
+  projects:
+    output: true
+    permalink: /:name/
+
+exclude:
+  - README.md

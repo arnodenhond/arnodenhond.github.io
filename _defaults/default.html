@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }} · {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ "/assets/style.css" | relative_url }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a class="site-title" href="{{ "/" | relative_url }}">
+      {{ site.title }}
+    </a>
+
+    <div class="nav-links">
+      <a href="{{ "/" | relative_url }}">Blog</a>
+      <a href="{{ "/about" | relative_url }}">About Me</a>
+      <a href="{{ "/portfolio" | relative_url }}">Portfolio</a>
+      <a href="{{ "/museum" | relative_url }}">Museum</a>
+      <a href="https://raspi.arnodenhond.com" target="_blank" rel="noopener">
+        Raspberry Pi
+      </a>
+    </div>
+  </nav>
+
+  <main class="content">
+    {{ content }}
+  </main>
+
+</body>
+</html>
