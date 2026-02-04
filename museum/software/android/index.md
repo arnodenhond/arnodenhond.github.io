@@ -66,6 +66,9 @@ The villages screen shows a list of groups of participants.
 The phonebook screen shows a list of phone numbers of organisors and participants.
 Clicking on an entry starts the dialer application.
 
+[HAR2009.apk](HAR2009.apk)
+
+
 ## MRMCD0x8
 For the MetaRheinMain ChaosDays 0x8 conference an app similar to the app for HAR2009 has been created.
 The conference took place from 4 to 6 september 2009 at TU Darmstadt in Germany.
@@ -150,17 +153,20 @@ For advanced users only!
 
 Review: [https://www.bright.nl/nieuws/1111593/de-20-beste-android-apps.html](https://www.bright.nl/nieuws/1111593/de-20-beste-android-apps.html)
 
-Teletext has [https://en.wikipedia.org/wiki/Teletext](Teletext) pages for over 148 channels from over 28 countries.
+Teletext has [Teletext](https://en.wikipedia.org/wiki/Teletext) pages for over 148 channels from over 28 countries.
 Create bookmarks to easily access your favourite pages.
 Navigate between pages using touchscreen gestures.
 
 ![](teletext.png)
+
+[Teletext.apk](Teletext.apk)
 
 ---
 
 # ReBro (2012)
 
 UDP multicast broadcast bridge using [Samsung Cord Library](https://news.samsung.com/global/samsung-developers-conference-2013-introducing-samsung-chord-and-group-play)
+
 [ReBro.zip](ReBro.zip)
 
 ## SymChat
@@ -172,15 +178,13 @@ Fully permissionless symmetric chat app
 
 # I’m Watch Sync Emulator (2013)
 
-[https://en.wikipedia.org/wiki/I'm_Watch](https://en.wikipedia.org/wiki/I'm_Watch)
-
-[https://github.com/arnodenhond/SyncEmu/](https://github.com/arnodenhond/SyncEmu/)
-
-When developing apps for I'm Watch configuration can be done through the I'm Cloud web interface.
+When developing apps for [I'm_Watch](https://en.wikipedia.org/wiki/I'm_Watch) configuration can be done through the I'm Cloud web interface.
 The app receives the configuration data (formatted as JSON) through a broadcast when the system completes the periodic synchronization with I'm Cloud.
 
 This small app emulates the broadcast sent by the system and can be used for testing if the app correctly receives the synchronization.
 The app allows input of the JSON as used by I'm Cloud, then it shows an input field for each configuration entry allowing you to set each value (similar to how i'm cloud could allow the user to configure the app), then it produces the output configuration JSON which is broadcast to the receiving app.
+
+[Source](https://github.com/arnodenhond/SyncEmu/)
 
 ---
 
@@ -233,10 +237,8 @@ Also plays videos in the media player or youtube, downlaods applications from th
 # GamesPlaza
 
 Website "launcher" app for gamesplaza.mobi shows website in an Android app.
-
 Launches Android Market for app downloads.
 Launches Browser for ring tone and wallpaper downloads.
-
 Options menu shows several shortcuts to different parts of the website.
 
 ![](gamesplaza.png)
@@ -252,6 +254,7 @@ Inserts the scanned barcode(s) and latitude/longitude and IMEI of the device int
 If a picture was taken, is it sent as the body of the request.
 A result page is shown when the call completes.
 
-Contact [ShipitSmarter.com](ShipitSmarter.com) for availability.
+Contact [http://ShipitSmarter.com](ShipitSmarter.com) for availability.
 
 ![](sisscreenshot.png)
+
