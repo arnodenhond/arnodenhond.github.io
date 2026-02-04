@@ -1,0 +1,53 @@
+20:50 31-8-2002
+Welcome to Arno's Ass!
+
+why ASS?
+-often information is stored on small pieces of paper burrried in ones wallet.
+ a wallet is usually placed in a hind pocket of ones pants.
+ this information is then stored 'in the ass'.
+ storing information in this way often results in it getting cluttered or lost.
+ this program is designed to store and find information better.
+-it uses Arno's Associative Suggestion Search (c) technollogy!
+
+this is how it works:
+
+a keyword is a word which describes one or more datas
+a data is XML content which is described by one or more keywords
+
+to search the database one or more keywords must be selected from the list of all keywords already in the database
+
+there are 2 kinds of results:
+-data results, a list of datas described by one or more oof the search-keywords.
+-suggestion keyword results, a list of all the keywords ddescribing the datas which are described by one or more of the search-keywords.
+ the search-keywords are excluded so only the other keywords describing the datas described by the search-keywords remain.
+
+sorting results:
+data results are sorted by the amount of keywords that they are described by that are in the search-list
+suggestion keywords can be sorted in 2 ways
+-total: the score of a keyword is calculated by adding thhe data score of every data which is described by this suggestion-keyword
+-average: the score of a keyword is calculated by dividinng the total score by the amount of datas described by at least one search-keyword and this suggestion-keyword.
+ thus generating a more associative result.
+
+example:
+-there exist 4 keywords describing these datas
+een	one, two, three, four
+twee	one
+drie	one
+vier	two, three, four
+-there exist 4 datas described by these keywords
+one	een, twee, drie
+two	een, vier
+three	een, vier
+four	een, vier
+-or in matrix (keywords,datas)
+      een   twee  drie  vier
+one   x     x     x
+two   x                 x
+three x                 x
+four  x                 x
+-search and result in total modes
+search data(score) total(score) average(score)
+een    one(2)      vier(3)      drie(2)
+twee   two(1)      drie(2)      vier(1)
+       three(1)
+       four(1)

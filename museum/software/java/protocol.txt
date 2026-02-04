@@ -1,0 +1,57 @@
+A=array
+S=String
+I=int
+B=boolean
+
+client		server		description
+
+--0--insert keyword
+s keyword			the 'text' that describes the text
+		I keyword_id	if the keyword exists, the index of that keyword else of the new keyword
+
+--1--insert text
+S text				the text itself
+  keywords			amount of keywords
+A keyword_id(s)			the indexes of the keywords that describe this text
+		I text_id		the index of the new text
+
+--2--remove keyword
+I keyword_id			the index of the keyword to remove
+		B true/false	succesfull?
+
+--3--remove text
+I text_id			the index of the text to remvoe
+		B true/false	succesfull?
+
+--4--keyword results
+  keywords			amount of keywords
+A keyword_id(s)			the indexes of the keywords to search on
+B average			divide scores by terms
+I result_length			maximum amount of results
+		  result_length	amount of results
+		A keyword_id(s)	the indexes of the keywords that are associated to the search keywords
+
+--5--text results
+  keywords			amount of keywords
+A  keyword_id(s)		the indexes of the keywords to search on
+I  result_length		maximum amount of results
+		  result_length	amount of results
+		A text_id(s)	the indexes of the texts that are associated to the search keywords
+
+--6--get keyword
+I keyword_id			the index of the keyword to retreive the 'text' of
+		S keyword	the 'text' of the keyword
+
+--7--get text
+I text_id			the index of the text to retreive the 'text' and keywords of
+		S text		the 'text' of the text
+
+--8--get text keywords
+I text_id			the index of the text to retreive the keyword indexes of
+		  keywords	amount of keywords
+		A keyword_id(s)	the keywords that are associated to this text
+
+--9--search keyword
+S keyword			a piece of text for which a keyword is searched
+		  keywords	amount of keywords
+		A keyword_id(s)	the indexes of the keywords that contain the search term

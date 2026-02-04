@@ -1,0 +1,157 @@
+==================] standalone [==================
+
+                   +--SearchPanel--+
+                   |  textfields   |
+                   |    button     |
+               +---|               |
+               |   |actionperformed|---+-----------+
++----GUI----+  |   +---------------+   |           |
+|searchpanel|--+                       |        +----Data-----+
+|           |          +-ResultTableModel-+     |find,        |
+|   table   |----------|      cache       |-----|read,        |
+|           |          +------------------+     |getColumns,  | <~~~> datafile
+|  source   |-----------------------------------|update,      |     
+|           |                          ^        |lock, unlock |     
+| bookpanel |--+   +---BookPanel---+   |        +-------------+     
++-----------+  |   |   textfield   |   |           |                
+               |   |    button     |   |           |                
+               +---|               |   |           |                
+                   |actionperformed|---+-----------+                
+                   +---------------+                                
+
+
+
+==================] client [==================
+
+                   +--SearchPanel--+
+                   |  textfields   |
+                   |    button     |
+               +---|               |
+               |   |actionperformed|---+-----------+
++----GUI----+  |   +---------------+   |           |
+|searchpanel|--+                       |        +-RemoteData--+
+|           |          +-ResultTableModel-+     |find,        |
+|   table   |----------|      cache       |-----|read,        |
+|           |          +------------------+     |getColumns,  |-----+
+|  source   |-----------------------------------|update,      |     |
+|           |                          ^        |lock, unlock |     |
+| bookpanel |--+   +---BookPanel---+   |        +-------------+     |
++-----------+  |   |   textfield   |   |           |                |
+               |   |    button     |   |           |                |
+               +---|               |   |           |                |
+                   |actionperformed|---+-----------+                |
+                   +---------------+                                |
+                                                                    |
+                                                                    |
+                                                                    | 
+==================] server [==================                      | 
+                                                                    |
+                      +-----Data------+                       +-Request-+
+                      | find, read,   |-----------------------| execute |
+       datafile <~~~> | getColumns,   |                       +---------+
+                      | update,       |---------+                   |
+                      | lock, unlock  |         |                   |
+                      +---------------+         |                   |
++-ClientAcceptor-+          |                   |                   |
+|     source     |----------+              +-ClientHandler-+        |
+|                |                  accept |     socket    |        |
+|  serversocket  |-------------------------| ------------- |--------+
+|                |                         |copy lockcookie|
+|    textarea    |                         |auto  unlocking|  
++----------------+     +-logTextArea-+     +---------------+  
+             |         | connections |         |
+             +---------|   requests  |---------+
+                       |  exceptions |
+                       +-------------+
+
+
+*****Searching the data and presenting the results*****
+The find method in the data class is only implemented because of instructions. It is not used by the gui.
+The RealDB interface extends the instructed DB interface and provides methods for searching records exactly matching the search query and getting the names of the fields in the datafile.
+Similar to find in DB, the exactFind method in RealDB matches a field to a criteria if the criteria was null. If the user leaves either location or name empty all fields for the unspecified criteria will match.
+If both L&M are empty, all records match, thus providing a method to list all records.
+When the gui starts, the table loads the names of its columns from the datasource however the columnwidths are harcoded (but adjustable by the user).
+The actionperformed method in the SearchPanel class calls exactFind on an object implementing the RealDB interface (RemoteData or Data) and sets results into ResultTableModel and sends an update event to the table to refresh the data in the gui.
+ResultTableModel holds the recordnumbers of the records displayed in the table. They are used when the user books a record to refer to the recordnumber as the server numbers them.
+ResultTableModel reads data from realDB and stores it in a private cache.
+When the user scrolls or clicks in the table some data could be reloaded from the model.
+Until the user performs a new search, data is loaded from the private cache instead of the data source.
+The booking field is never loaded from cache but always reloaded from the data source to try to show bookings made by other clients whenever possible. This feature can easily be removed if it causes too much load on the server.
+The gui does not respond while waiting for a request or booking to complete. If the server stops responding then so does the client.
+If another client books a record after this client shows search results, the booking is not shown until the record is selected or the table is scrolled.
+I think these problems are acceptable as B&S wants to do future customer service providing through a web interface which has the same problems.
+
+
+*****Record locking/booking*****
+The body of the lock method in the data class is synchronized on the object of the record that is being locked.
+The lock method checks if the lockCookie variable in the record object is already set and if so calls the wait method of the record object, thus releasing the object's lock and allowing other threads to try to lock or unlock this record.
+The body of the unlock method in the data class is also synchronized on the object of the record that is beeing unlocked.
+The unlock method un-sets the lockcookie variable in the record object and calls the notifyAll method of the record object, thus waking other threads that had called wait on this record.
+The thread that was waiting in the lock method checks if the lockcookie is un-set and if so sets a new lockcookie in the record object to lock it.
+The lock method in the data class returns a long which must be used to update, delete and unlock that record.
+The curLockCookie variable in the data class is the lockCookie that will be given to the next record that is locked. It is increased each time a record is locked.
+The actionperformed method in the bookpanel class holds the lockcookie and uses it to update and unlock the record. The record is read again, after locking and before updating, to ensure the record will not be booked twice. Pop-ups are shown if any errors occur. The booking status of a record is not checked by the update method in the data access layer.
+The instructions does not mention how to specify the date or number of workers that is booked so such features have not been implemented yet.
+
+In client mode the bookpanel's actionperformed method interacts with the remotedata class, none of which's methods are synchronized because it only forwards requests to clienthandler.
+Each clienthandler thread also holds a copy of the lockcookie that was last given to the client.
+If a client disconnects before unlocking a record, clienthandler uses its copy of the lockcookie to unlock that record.
+If a client locks another record while still holding a lock, clienthandler silently unlocks the first record to avoid any possible deadlock situation. However the gui never locks more than one record at once, in standalone mode it would be possible to have multiple locks. Obviously if a thread locks a record then tried to lock that same record again, a deadlock will occur.
+If a client tries to book a record but has to wait for another client to unlock it first, the lock method in remotedata keeps waiting for response and causes the gui to freeze. The booking process consumes only a short time so this should not be a problem.
+
+
+*****Networking/Server*****
+The gui always interacts with an object that implements the RealDB interface.
+In stand-alone mode the gui calls methods on the Data class directly.
+In client mode the gui calls methods on the RemoteData class which sends serialized objects implementing the Request interface to the server.
+At the server, ClientHandler threads receive the Request objects and call their execute methods which call methods on the Data class.
+If other types of request are needed in the future, these should implement the Request interface and hold their data access code in the execute method so the server doesn't need modification.
+ClientHandler serializes the result or any exception and sends it back to RemoteData.
+A Response interface is not needed as the client knows which types of result to expect.
+RemoteData then returns the result or throws any exception to the gui as-if it were the data access class itself.
+
+1 The gui calls exactFind in RemoteData.
+2 RemoteData sends FindRequest to ClientHandler.
+3 ClientHandler calls execute in FindRequest.
+4 execute calls exactFind in Data.
+5 exactFind searches the data and returns a result.
+6 execute returns result of exactFind to ClientHandler.
+7 CientHandler sends result to RemoteData.
+8 exactFind in RemoteData returns result to the gui.
+
+I have chosen to send serialized objects over sockets instead or RMI because it is smaller, simpler and faster. A server which uses RMI can only handle clients which support it.
+However RMI might provide an easier to use programming model and may provide the programmer with less control.
+I have chosen to not send updates made by one client automatically to the other clients.
+This would
+
+The serversocket is opened by the ClientAcceptor class which starts a ClientHandler thread for each connection it receives.
+Each ClientHandler keeps its connection opened continuously and appends log messages to the top of a common logpanel in ClientAcceptor.
+ClientHandler continuously waits for a request from the client, executes the Request on the database and returns the result to the client.
+ClientHandler passes a reference to the data access class as arguement when calling the execute method on a request object. if a reference to remotedata (connected to another server) was passed a tunnel-mode could be created.
+When the server is closed normally, any clients will become disconnected and receive an error message.
+If the server would not be close-able while any client is still connected, it might never become possible to bring down the server.
+If one client makes an update, the new data is not automatically pushed to the other clients. The new data only becomes visible at the other clients when they refresh their screen.
+
+As the gui does not need to implement delete and create functionality there are no corresponding request objects yet.
+remotedata does not implement these methods but returns an error message wrapped in an exception that method is allowed to throw.
+since each method must return a result to the client, the update method returns a boolean set to true.
+
+*****Error and exception handling*****
+The update, create and delete methods in the data access class return an error message wrapped in an exception which that method may throw if it can not write the update to the datafile.
+The methods in RemoteData that dont throw any exceptions to the gui inform the user directly by displaying a pop-up dialog.
+The methods in RemoteData that throw exceptions, return an error message wrapped in an exception which that method may throw if it can not communicate to the server.
+Usually the gui displays the error in a pop-up.
+The getValueAt method in ResultTableModel does not show a pop-up when it fails to read a record from the data access layer because usually a lot of records are read at once causing the user to be 'swamped' by pop-ups. The error message is returned as the cell data and displayed in the table instead.
+
+The create method in the data access class throws a DuplicateKeyException when attemping to add a record with the exact same name and location as any other non-deleted record.
+The validateRecNo and validateCookie methods in the data access class check the parameters for each method.
+The unlock method in the data access class does not throw RecordNotFoundException when unlocking a deleted record.
+
+The booking-id is checked in the gui before calling the data access layer to update the record. a pop-up is shown if its not a number or has more than 8 digits.
+The actionPerformed method in the BookPanel class checks if the record is not already booked and shows a pop-up if necessary. Other pop-ups are shown if any other part of the booking process fails.
+
+ValidateFieldLengths in the record class removes excess field data or appends (or prepends) spaces (or zeros) as necessary without throwing exceptions.
+
+If Data can not read the datafile, if RemoteData can not connect to the server or if ClientAcceptor can not open the server socket, a pop-up is shown and the program halts immediately.
+
+DataConfig, PortConfig and ServerConfig show pop-ups when unable to load or save settings to the properties file and continue using default values.

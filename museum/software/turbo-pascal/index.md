@@ -24,7 +24,7 @@ Just a small part of a different ansimation. I was the Sysop “Icy-D” and the
 
 There were numerous advanced features. I don’t remember exactly how it all worked but creating an animation could quickly become extremely complex.
 
-DOS Executable: zodam.zip
+DOS Executable: [zodam.zip](zodam.zip)
 
 # BBS GuestBook (~1996)
 
