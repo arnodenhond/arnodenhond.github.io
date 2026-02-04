@@ -2,6 +2,10 @@
 
 {:toc}
 
+I made my first J2ME (midp1.0) application on a palm pilot in 2002.
+
+My latest JME work involved the LightWeightUserInterfaceToolkit in 2008
+
 ## Self-Replication (2006)
 
 ![](Zipinzip.JPG)
@@ -51,8 +55,17 @@ standalone zql, history graph
     
 ## W-Mobile (2009)
 
-A LWUIT midlet for visitors of [WORM](http://www.wormweb.nl) to view agenda of upcoming events. 
-Includes integration with Rabobank SMS payment to buy tickets from the application.
+W-Mobile is a JME MIDlet developed for [WORM](http://www.wormweb.nl)
+Its purpose is to show the agenda for upcoming events.
+It is integrated with rabobank sms betalen to enable users to buy tickets to events.
+Other featurs include:
+* Pre-Listen which dials a number and DTMF post dialing to play a sample of an event.
+* Tip A Friend which allows the user to send a SMS message to a friend to inform of an interesting event.
+
+W-Mobile was developed using the [Lightweight User Interface Toolkit](https://en.wikipedia.org/wiki/Lightweight_User_Interface_Toolkit)
+* Smooth list scrolling 
+* Custom fonts
+* Smooth screen transitions
     
 ## BelBios (2003)
 
