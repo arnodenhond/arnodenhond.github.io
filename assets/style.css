@@ -97,3 +97,23 @@ body {
 
 /* Small helpers */
 .muted, .meta, .byline, .small { color: var(--muted); font-size: 0.95rem; }
+
+.toc, nav.toc, .table-of-contents {
+  display: block !important;
+  margin: 1em 0;
+  padding: 0.75em;
+  border: 1px solid #e1e4e8;
+  background: #fafbfc;
+}
+
+.toc ul, nav.toc ul {
+  list-style: disc;
+  margin-left: 1.25em;
+}
+
+.toc a, nav.toc a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.toc a:hover { text-decoration: underline; }

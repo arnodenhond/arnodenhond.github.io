@@ -10,6 +10,7 @@ theme: minima
 markdown: kramdown
 
 kramdown:
+  input: GFM
   toc_levels: 1..6
   auto_ids: true
 

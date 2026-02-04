@@ -1,5 +1,6 @@
 ---
 title: Network
+layout: default
 ---
 
 # Network

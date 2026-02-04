@@ -1,5 +1,6 @@
 ---
 title: Android
+layout: default
 ---
 
 # Android

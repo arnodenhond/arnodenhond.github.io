@@ -1,5 +1,6 @@
 ---
 title: J2ME
+layout: default
 ---
 
 # J2ME
