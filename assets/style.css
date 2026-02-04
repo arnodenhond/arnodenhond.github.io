@@ -83,3 +83,83 @@ body {
     height: 200px;
   }
 }
+
+
+html.dark, :root.dark {
+  color-scheme: dark; /* hint for browser form controls & scrollbars */
+}
+
+/* Base page background & text */
+html.dark, html.dark body {
+  background-color: #0b0f14 !important;
+  color: #e6eef8 !important;
+}
+
+/* Links and headings */
+html.dark a { color: #4da3ff !important; }
+html.dark a:hover { text-decoration: underline; }
+html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark h5, html.dark h6 {
+  color: #ffffff !important;
+}
+
+/* Navbar: keep existing dark look but ensure text remains visible */
+html.dark .navbar {
+  background: #0e1519 !important;
+}
+html.dark .navbar a { color: #f5f7fa !important; }
+
+/* Post cards: make them dark and reduce bright shadows */
+html.dark .post-card {
+  background: #071219 !important;
+  color: inherit !important;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6) !important;
+  border: 1px solid rgba(255,255,255,0.03) !important;
+}
+
+/* Images: keep natural color; add optional class for inversion where needed */
+html.dark .post-card img {
+  background: #071219;
+}
+
+/* Post info and links inside cards */
+html.dark .post-info {
+  color: inherit !important;
+}
+html.dark .post-info a { color: #9ad1ff !important; }
+
+/* Common containers used by many themes */
+html.dark .site, html.dark .page, html.dark .container, html.dark .content, html.dark .main {
+  background: transparent !important;
+  color: inherit !important;
+}
+
+/* Code blocks and pre elements */
+html.dark pre, html.dark code {
+  background: #071014 !important;
+  color: #dbe9ff !important;
+  border-color: #12202a !important;
+}
+
+/* Muted/secondary text */
+html.dark .muted, html.dark .meta, html.dark .byline, html.dark .small {
+  color: #9aa6b2 !important;
+}
+
+/* Footer/header */
+html.dark footer, html.dark header, html.dark .site-footer, html.dark .site-header {
+  background: transparent !important;
+  color: inherit !important;
+}
+
+/* If specific elements still show bright backgrounds, target them explicitly:
+   replace .some-selector with the selector reported by DevTools */
+html.dark .some-very-specific-selector {
+  color: #e6eef8 !important;
+  background: #0b0f14 !important;
+}
+
+/* Optional helper: invert images that assume a white background by adding
+   the class="invert-for-dark" to those <img> tags in your HTML */
+html.dark img.invert-for-dark {
+  filter: invert(1) hue-rotate(180deg) saturate(0.85);
+}
