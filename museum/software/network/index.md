@@ -31,6 +31,8 @@ Distributed Adaptive Routing Protocol by Arno
 
 ## MultiChat (J2ME)
 
+A chat midlet for use over ArNet. Designed for group conversations.
+
 ![](multichat1.jpg)
 ![](multichat2.jpg)
 ![](multichat3.jpg)
@@ -47,6 +49,8 @@ Distributed Adaptive Routing Protocol by Arno
 [LocalAccess.zip](LocalAccess.zip)
 
 ## ArNet (J2ME)
+
+A mesh networking node. Connects to other nodes over TCP/IP and routes messages according to protocol.
 
 ![](arnetdiagram.jpg)
 ![](arnet1.jpg)

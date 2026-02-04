@@ -16,7 +16,10 @@ Chain Letter. Self replication demonstrator
 
 ### SMS Cash
 
-Pyramid Scheme with payment by SMS. 
+A pyramid scheme to demonstrate Replication Technology.
+Participant registers a "charitable organization" by sending a premium sms.
+Profits are payed to referring participants.
+When participant refers new people, their registration fee is payed to "charitable organization".
 
 [SMSDonatie.jar](SMSDonatie.jar)
   
@@ -30,13 +33,16 @@ bluetooth replication, genetic algorithm
     
 ## TaalGids (2005)
 
-fancy ui, mmapi
+A Dutch to Spanish guide of common phrases. 
+Includes custom user interface (canvas), audio samples playback, bookmarks stored in RMS.
+Developed for [Formativ](http://www.formativ.nl)
 
 ![](taalgidscomponents.jpg)
 [taalgids.zip](taalgids.zip)
     
 ## CashLog
-MIDlet for palm or phone to record and display personal finance data
+A "keyword suggestion" income and expense administration MIDlet.
+Can show week, month and year graphs for selected keywords.
 
 standalone zql, history graph
 
@@ -44,10 +50,13 @@ standalone zql, history graph
 [source](ASS_source.zip)
     
 ## W-Mobile (2009)
+
+A LWUIT midlet for visitors of [WORM](http://www.wormweb.nl) to view agenda of upcoming events. 
+Includes integration with Rabobank SMS payment to buy tickets from the application.
     
 ## BelBios (2003)
 
-Three part system to spider a wap site, process data and serve it to a mobile client
+ A three part system to spider a cinema portal and reorganize movie schedule data, serve compressed data to client and display it in a user-friendly, searchable way
 
 ## TV-Guide
 
@@ -59,15 +68,13 @@ program that downloads a bunch of wml pages and represents data in a better sear
     
 ## Dungeons & Dragons Tools (2003)
 
-Unfinished dungeons & dragons player tool.
-
-Character sheet and various tools and calcuators.
+A Dungeons and Dragons Player Tool (unfinished). Digital character sheet for RolePlayingGames. Includes various tools and calculators.
 
 [DDPT.zip](DDPT.zip)
 
 ## Examine
 
-Questionnaire client includes XML to datastream converter
+A mobile version of [Examine](http://www.examine.nl/). Downloads or is supplied with an xml file containing question, answer type (free text, checkbox, radiobutton, slider) and page layout/flow data. Returns answers by http post or sms
 
 [examine.zip](examine.zip)
 

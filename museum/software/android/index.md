@@ -18,6 +18,8 @@ The first and last label on the X axis are intentionally not centered in order t
 
 # Event Schedule Map (2009)
 
+Informational application for visitors of conferences. Browse list of events and request notifications, view a map of the area, browse various additional information
+
 ## Hacking at Random 
 [http://www.har2009.org/](har2009.org)
 
@@ -95,6 +97,8 @@ Select your preferred session for each timeslot. Clicking on a session allows yo
 ---
 
 # Quick Search Box Tools (2010)
+
+5 tools (Calendar, Twitter, Calculator, URL, Currency) which transform QSB into Quick Command Box to allow quick and easy input of data without opening any apps.
 
 Review: [https://androidguys.com/reviews/app-reviews/app-review-qsb-add-ons/](https://androidguys.com/reviews/app-reviews/app-review-qsb-add-ons/)
 
@@ -240,6 +244,7 @@ Website "launcher" app for gamesplaza.mobi shows website in an Android app.
 Launches Android Market for app downloads.
 Launches Browser for ring tone and wallpaper downloads.
 Options menu shows several shortcuts to different parts of the website.
+Developed for [The Saints](the-saints.nl)
 
 ![](gamesplaza.png)
 
@@ -257,4 +262,13 @@ A result page is shown when the call completes.
 Contact [http://ShipitSmarter.com](ShipitSmarter.com) for availability.
 
 ![](sisscreenshot.png)
+
+---
+
+# HelloArnoid
+
+My very first application! Compiled on January 29, 2009. Does nothing but display the text "hello arnoid" on the screen. 
+
+[helloarnoid.apk](helloarnoid.apk)
+
 
