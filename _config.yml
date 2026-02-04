@@ -9,6 +9,10 @@ theme: minima
 
 markdown: kramdown
 
+kramdown:
+  toc_levels: 1..6
+  auto_ids: true
+
 tagline: Notes from the internet
 email: arnodenhond@gmail.com
 

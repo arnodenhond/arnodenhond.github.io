@@ -1,10 +1,14 @@
+---
+title: J2ME
+---
+
 # J2ME
 
 {:toc}
 
 I made my first J2ME (midp1.0) application on a palm pilot in 2002.
 
-My latest JME work involved the LightWeightUserInterfaceToolkit in 2008
+My latest JME work involved the LightWeightUserInterfaceToolkit in 2008.
 
 ## Self-Replication (2006)
 
