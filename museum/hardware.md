@@ -1,6 +1,6 @@
 # Hardware
 
-## [System76 Serval WS](https://system76.com/laptops/serval)
+## System76 Serval WS
 
 ```plaintext
 CPU: 5.8 GHz i9-14900HX
@@ -9,7 +9,7 @@ Screen: 17.3" Matte 2K QHD
 Storage: 4 TB
 ```
 
-## [Pixel 8 Pro](https://store.google.com/product/pixel_8_pro)
+## Pixel 8 Pro
 
 ```plaintext
 CPU: ARMv9 Google Tensor G3
@@ -23,6 +23,7 @@ Storage: 128 GB
 ```plaintext
 CPU: 1.15 GHz ARM Cortex-M33
 RAM: 2 GB
+Screen: 41mm AMOLED
 Storage: 32 GB
 ```
 
@@ -36,6 +37,13 @@ Sensors: Webcam, DHT22 (Temperature & Humidity), Microphone
 ```
 
 ## Arduino Nano
+
+```plaintext
+CPU: 16 MHz ATmega328P
+RAM: 32 KB Flash, 2 KB SRAM, 1 KB EEPROM
+Modules: RTC DS1307, Mod4 Max7219 8x32LED
+```
+
 
 ## Bose Quiet Comfort 35 Series 2
 
@@ -75,11 +83,7 @@ VIC-20
 CPM/86
 ```
 
-<img src="mycomputers.jpeg" alt="My Computer" width="600">
+<img src="mycomputers.jpeg" alt="My computers ~1996" width="600">
 
-My 4 computers ~1996
+<img src="myphones.jpeg" alt="My Android devices ~2012" width="600">
 
-<img src="myphones.jpeg" alt="My Computer" width="600">
-
-
-My Android devices ~2012

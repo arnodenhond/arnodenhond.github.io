@@ -1,165 +1,99 @@
-body {
-  font-family: system-ui, sans-serif;
-  margin: 0;
-  background: #f6f7f9;
-  color: #222;
+:root{
+  --bg: #0b0f14;
+  --card: #071219;
+  --text: #e6eef8;
+  --muted: #9aa6b2;
+  --link: #4da3ff;
+  --shadow: 0 6px 18px rgba(0,0,0,0.55);
+  --radius: 8px;
+  --gap: 24px;
+  font-size: 16px;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Always-dark (your <html> has class="dark") */
+html.dark, :root.dark {
+  color-scheme: dark;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Base body */
+body {
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Top navigation */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 14px 24px;
-  background: #111;
+  background: #0e1519;
 }
-
 .navbar a {
-  color: #f5f5f5;
+  color: var(--text);
   text-decoration: none;
   margin-left: 16px;
 }
+.navbar a:hover { text-decoration: underline; }
 
-.navbar a:hover {
-  text-decoration: underline;
-}
+/* Site title */
+.site-title { font-weight: 700; }
 
-.site-title {
-  font-weight: 700;
-}
-
+/* Main content container */
 .content {
   max-width: 900px;
   margin: 60px auto;
   padding: 0 20px;
 }
 
+/* Post card */
 .post-card {
   display: flex;
-  gap: 24px;
+  gap: var(--gap);
   margin-bottom: 48px;
-  background: white;
-  border-radius: 8px;
+  background: var(--card);
+  border-radius: var(--radius);
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255,255,255,0.03);
 }
 
 .post-card img {
   width: 240px;
   height: 160px;
   object-fit: cover;
+  background: #0a0f12;
 }
 
 .post-info {
   padding: 20px;
 }
-
 .post-info h2 {
-  margin-top: 0;
-  margin-bottom: 8px;
+  margin: 0 0 8px 0;
 }
-
 .post-info a {
-  color: #111;
+  color: var(--link);
   text-decoration: none;
 }
+.post-info a:hover { text-decoration: underline; }
+.post-info p { margin-top: 12px; color: var(--muted); }
 
-.post-info a:hover {
-  text-decoration: underline;
-}
-
-.post-info p {
-  margin-top: 12px;
-  line-height: 1.6;
-}
-
-/* Mobile-friendly */
+/* Responsive */
 @media (max-width: 700px) {
-  .post-card {
-    flex-direction: column;
-  }
-
-  .post-card img {
-    width: 100%;
-    height: 200px;
-  }
+  .post-card { flex-direction: column; }
+  .post-card img { width: 100%; height: 200px; }
 }
 
-
-html.dark, :root.dark {
-  color-scheme: dark; /* hint for browser form controls & scrollbars */
-}
-
-/* Base page background & text */
-html.dark, html.dark body {
-  background-color: #0b0f14 !important;
-  color: #e6eef8 !important;
-}
-
-/* Links and headings */
-html.dark a { color: #4da3ff !important; }
-html.dark a:hover { text-decoration: underline; }
-html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark h5, html.dark h6 {
-  color: #ffffff !important;
-}
-
-/* Navbar: keep existing dark look but ensure text remains visible */
-html.dark .navbar {
-  background: #0e1519 !important;
-}
-html.dark .navbar a { color: #f5f7fa !important; }
-
-/* Post cards: make them dark and reduce bright shadows */
-html.dark .post-card {
-  background: #071219 !important;
-  color: inherit !important;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.6) !important;
-  border: 1px solid rgba(255,255,255,0.03) !important;
-}
-
-/* Images: keep natural color; add optional class for inversion where needed */
-html.dark .post-card img {
-  background: #071219;
-}
-
-/* Post info and links inside cards */
-html.dark .post-info {
-  color: inherit !important;
-}
-html.dark .post-info a { color: #9ad1ff !important; }
-
-/* Common containers used by many themes */
-html.dark .site, html.dark .page, html.dark .container, html.dark .content, html.dark .main {
-  background: transparent !important;
-  color: inherit !important;
-}
-
-/* Code blocks and pre elements */
-html.dark pre, html.dark code {
-  background: #071014 !important;
-  color: #dbe9ff !important;
-  border-color: #12202a !important;
-}
-
-/* Muted/secondary text */
-html.dark .muted, html.dark .meta, html.dark .byline, html.dark .small {
-  color: #9aa6b2 !important;
-}
-
-/* Footer/header */
-html.dark footer, html.dark header, html.dark .site-footer, html.dark .site-header {
-  background: transparent !important;
-  color: inherit !important;
-}
-
-/* If specific elements still show bright backgrounds, target them explicitly:
-   replace .some-selector with the selector reported by DevTools */
-html.dark .some-very-specific-selector {
-  color: #e6eef8 !important;
-  background: #0b0f14 !important;
-}
-
-/* Optional helper: invert images that assume a white background by adding
-   the class="invert-for-dark" to those <img> tags in your HTML */
-html.dark img.invert-for-dark {
-  filter: invert(1) hue-rotate(180deg) saturate(0.85);
-}
+/* Small helpers */
+.muted, .meta, .byline, .small { color: var(--muted); font-size: 0.95rem; }
