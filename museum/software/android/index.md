@@ -20,30 +20,44 @@ The first and last label on the X axis are intentionally not centered in order t
 
 ## Hacking at Random 
 [http://www.har2009.org/](har2009.org)
+
 ![](harbanner.png)
+
 The main screen has different layouts for landscape and portrait.
 Six buttons at the top open various screens and two tabbed pages at the bottom show which events are going on now and which are starting next (one event for each location).
+
 ![](harmain.png)
+
 The events list can be sorted in two ways
  * By Location. The track is shown as subtitle.
  * By Track (shown below). The location is shown as subtitle.
+
 ![](harevents.png)
+
 Clicking on an event brings up the event details screen.
 This screen can also be accessed through the now and next lists in the main screen.
 The button at the bottom allows the user to add or remove this event to his/her personalized schedule.
+
 ![](hardetails.png)
+
 All marked events can be reviewed in the notifications screen.
 The application does not automatically check for time conflicts.
 The events in this list are not grouped by location or track.
 Clicking on an event brings up the event details screen.
+
 ![](harnotifications.png)
+
 Ten minutes before a selected event starts the user will be notified.
 Notifications are stored in the database and are restored if the device restarts.
 Clicking on the notification brings up the event details screen.
+
 ![](haralert.png)
+
 The map feature shows an stylized map image of the area.
 A selecting an item from the list of points of interest indicates that items position on the map.
+
 ![](harmap.png)
+
 The information screen shows some random information about the event.
 Buttons start the maps, browser or dialer application.
 
@@ -59,13 +73,18 @@ The conference took place from 4 to 6 september 2009 at TU Darmstadt in Germany.
 
 ## J-Fall
 [https://nljug.org/](Nederlandse Java User Group)
+
 ![](mainland.png)
+
 The schedule menu shows all activities of the entire day.
 For each timeslot the selected session is displayed.
+
 ![](schedule.png)
+
 The sessions menu works a bit different than in the other versions.
 First an overview is shown which allows you to either view a session or a timeslot with a number of simultanious sessions.
 Select your preferred session for each timeslot. Clicking on a session allows you to view it.
+
 ![](sessiekiezen.png)
 ![](sessielezen.png)
 ![](sessieoverzicht.png)
@@ -79,6 +98,7 @@ Review: [https://androidguys.com/reviews/app-reviews/app-review-qsb-add-ons/](ht
 These apps are used through the Quick Search Box.
 They try to transform it into a Quick Command Box.
 The intended benefit is that a user no longer needs to navigate through an app to perform a common task.
+
 ![](CommandLineBox.png)
 ![](searchsetting.png)
 
@@ -88,6 +108,7 @@ Calculation result is shown in the suggestions list below the searchbox.
 Opening the calculator app is not required.
 Search Calculator supports many mathematical functions.
 Requires Android 1.6 (Donut)
+
 ![](searchcalc.png)
 
 ## Currency Converter
@@ -95,6 +116,7 @@ Use the Quick Search Box (QSB) to easily convert currency.
 Define a default input currency and several output currencies.
 Justtype the amount and see the converted amounts in the suggestions list.Also allows easy non-default conversions such as "10 usd to eur"
 Supports 64 currencies. Uses live data from Google Finance
+
 ![](searchCurrency2.png)
 
 ## Calendar Input
@@ -102,6 +124,7 @@ Use the Quick Search Box (QSB) to add a new event in the calendar.
 Describe a new event by typing something like "Sat 9pm to 23.30 party time at my place" to create a new event on the next saturday from 9 to 11:30 pm with the subject set to "party time" and the location set to "my place".
 Search Calendar will show one suggestion for each calendar below the search box. Selecting a suggestion will save it to the appropriate calendar.
 It takes a little practice to get used to the input format.
+
 ![](calfull.png)
 
 ## Tweet Post
@@ -109,6 +132,7 @@ Use the Quick Search Box (QSB) to send a twitter message.
 Select the Send Tweet option from the suggestions list below the searchbox.
 Opening the twitter app is not required.
 Search Tweet requires Twidroid and Android 1.6 (Donut)
+
 ![](searchtweet1.png)
 
 ## URL Shortcut
@@ -117,6 +141,7 @@ Create your own shortcuts, define their urls and where to insert the query from 
 Select the suggestion result to launch the url.
 SearchUrl supports any protocol for which an app is installed.
 For advanced users only!
+
 ![](searchurl1.png)
 
 ---
@@ -128,6 +153,7 @@ Review: [https://www.bright.nl/nieuws/1111593/de-20-beste-android-apps.html](htt
 Teletext has [https://en.wikipedia.org/wiki/Teletext](Teletext) pages for over 148 channels from over 28 countries.
 Create bookmarks to easily access your favourite pages.
 Navigate between pages using touchscreen gestures.
+
 ![](teletext.png)
 
 ---
@@ -139,6 +165,7 @@ UDP multicast broadcast bridge using [Samsung Cord Library](https://news.samsung
 
 ## SymChat
 Fully permissionless symmetric chat app
+
 [SymChat.zip](SymChat.zip)
 
 ---
@@ -172,6 +199,7 @@ Usage: Either paste from clipboard or start typing and press enter. Simply selec
 Direct Share: Send Text makes use of Android 6.0's Direct Share feature to allow sending text directly to a certain contact within an app that can send text.
 Important: Send text is started through a Quick Settings tile which you need to add to your Quick Settings panel before use.
 Disclaimer: Send Text is only 13kb. It has no permissions, background activities or advertisements. 
+
 [Source](http://github.com/arnodenhond/sendtext)
 
 later added as a system feature
